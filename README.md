@@ -6,7 +6,9 @@ Tools for streaming data to and from S3
 
 The library provides tools to integrate akka-streams with Amazon S3 storage service. To use it add to your dependencies:
 
-    "com.gilt" %% "gfc-aws-s3-akka" % "0.1.0"
+```sbt
+"com.gilt" %% "gfc-aws-s3-akka" % "0.1.0"
+```
 
 The library contains akka-stream Sources and Sinks to Stream data from and to S3.
 
@@ -16,26 +18,26 @@ Allows uploading data to S3 in a streaming manner. The underlying implementation
 
 To create the source:
 
-    ```scala
-    import com.gilt.gfc.s3.akka.S3MultipartUploaderSink._
-    
-    val bucketName = "test-bucket"
-    val fileKey = "test-file"
-    val s3Client = AmazonS3ClientBuilder.standard()
-      .withRegion("us-east-1")
-      .build
-    val chunkSize = 6 * 1024 * 1024 // 6 Megabytes
-    
-    val sink = Sink.s3MultipartUpload(s3Client, bucketName, fileKey, chunkSize)
-    ```
+```scala
+import com.gilt.gfc.s3.akka.S3MultipartUploaderSink._
+
+val bucketName = "test-bucket"
+val fileKey = "test-file"
+val s3Client = AmazonS3ClientBuilder.standard()
+  .withRegion("us-east-1")
+  .build
+val chunkSize = 6 * 1024 * 1024 // 6 Megabytes
+
+val sink = Sink.s3MultipartUpload(s3Client, bucketName, fileKey, chunkSize)
+```
 
 The sink could also be created in different style manner:
 
-    ```scala
-    import com.gilt.gfc.s3.akka.S3MultipartUploaderSink
-    
-    val sink = S3MultipartUploaderSink(s3Client, bucketName, fileKey, chunkSize)
-    ```
+```scala
+import com.gilt.gfc.s3.akka.S3MultipartUploaderSink
+
+val sink = S3MultipartUploaderSink(s3Client, bucketName, fileKey, chunkSize)
+```
 
 The materialized value of the sink is the total length of the uploaded file in case of successful uploads.
 
@@ -49,36 +51,36 @@ Allows accessing S3 objects as a stream source in two different manners - by par
 
 To do that, use:
 
-    ```scala
-    import com.gilt.gfc.s3.akka.S3DownloaderSource._
-    
-    val bucketName = "test-bucket"
-    val fileKey = "test-file"
-    val s3Client = AmazonS3ClientBuilder.standard()
-      .withRegion("us-east-1")
-      .build
-    val memoryBufferSize = 128 * 1024 // 128 Kb buffer
-    
-    val source = Source.s3MultipartDownload(s3Client, bucketName, fileKey, memoryBufferSize)
-    ```
+```scala
+import com.gilt.gfc.s3.akka.S3DownloaderSource._
+
+val bucketName = "test-bucket"
+val fileKey = "test-file"
+val s3Client = AmazonS3ClientBuilder.standard()
+  .withRegion("us-east-1")
+  .build
+val memoryBufferSize = 128 * 1024 // 128 Kb buffer
+
+val source = Source.s3MultipartDownload(s3Client, bucketName, fileKey, memoryBufferSize)
+```
 
 2. accessing by chunks means that you provide a size of the part to download, and the source will ultimately use `Range` header to access file in "seek-and-read" manner. This approach could be used with any S3 object, regardless of whether it was uploaded using multipart API or not. The size of the chunk will affect the number of the requests sent to S3.
 
 To do that use:
 
-    ```scala
-    import com.gilt.gfc.s3.akka.S3DownloaderSource._
-    
-    val bucketName = "test-bucket"
-    val fileKey = "test-file"
-    val s3Client = AmazonS3ClientBuilder.standard()
-      .withRegion("us-east-1")
-      .build
-    val chunkSize = 1024 * 1024       // 1 Mb chunks to request from S3
-    val memoryBufferSize = 128 * 1024 // 128 Kb buffer
-    
-    val source = Source.s3ChunkedDownload(s3Client, bucketName, fileKey, chunkSize, memoryBufferSize)
-    ```
+```scala
+import com.gilt.gfc.s3.akka.S3DownloaderSource._
+
+val bucketName = "test-bucket"
+val fileKey = "test-file"
+val s3Client = AmazonS3ClientBuilder.standard()
+  .withRegion("us-east-1")
+  .build
+val chunkSize = 1024 * 1024       // 1 Mb chunks to request from S3
+val memoryBufferSize = 128 * 1024 // 128 Kb buffer
+
+val source = Source.s3ChunkedDownload(s3Client, bucketName, fileKey, chunkSize, memoryBufferSize)
+```
 
 The pieces of code above will crease a Source[ByteString], where each ByteString represents a part of the file.
 
