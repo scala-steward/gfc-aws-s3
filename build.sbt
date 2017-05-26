@@ -11,10 +11,8 @@ val commonSettings = Seq(
   startYear     := Some(2017),
   licenses      += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html")),
   scalaVersion  := "2.11.11",
-  crossScalaVersions := Seq(scalaBinaryVersion.value, "2.12.2")
-)
+  crossScalaVersions := Seq(scalaBinaryVersion.value, "2.12.2"),
 
-val publishSettings = Seq(
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
 
   publishMavenStyle := true,
@@ -52,7 +50,6 @@ val publishSettings = Seq(
 
 lazy val akka = (project in file("akka"))
   .settings(commonSettings)
-  .settings(publishSettings)
   .settings(
     name        := "gfc-aws-s3-akka",
     description := "Library to handle data streaming to and from s3",
@@ -88,6 +85,7 @@ lazy val s3http = (project in file("s3-http"))
 
 
 lazy val root = (project in file("."))
+  .settings(commonSettings)
   .settings(
     name := "gfc-aws-s3",
     publishArtifact := false
