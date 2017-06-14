@@ -6,11 +6,7 @@ Tools for streaming data to and from S3
 
 ## Akka
 
-The library provides tools to integrate akka-streams with Amazon S3 storage service. To use it add to your dependencies:
-
-```sbt
-"com.gilt" %% "gfc-aws-s3-akka" % "0.1.0"
-```
+The library provides tools to integrate akka-streams with Amazon S3 storage service. 
 
 The library contains akka-stream Sources and Sinks to Stream data from and to S3.
 
