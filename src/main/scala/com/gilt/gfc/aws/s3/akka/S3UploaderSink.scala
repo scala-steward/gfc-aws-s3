@@ -62,6 +62,13 @@ class S3MultipartUploaderSinkProtocol(
     state.totalLength
   }
 
+  def abortUpload(ex: Throwable, state: S3MultipartUploaderState): Unit = {
+    logger.info(s"Something happened during the execution, the upload has to be aborted", ex)
+    val request = new AbortMultipartUploadRequest(bucketName, key, state.uploadId)
+    s3Client.abortMultipartUpload(request)
+    logger.info(s"Upload aborted for ${state.uploadId}")
+  }
+
   def mkSink(chunkSize: Int): Sink[Byte, Future[Long]] = Flow[Byte]
     .grouped(chunkSize)
     .map(ByteString(_ : _*))
@@ -71,7 +78,8 @@ class S3MultipartUploaderSinkProtocol(
       Sink.foldResource[S3MultipartUploaderState, (ByteString, Int), Long](
         () => initUpload(),
         { case (state, (chunk, chunkNumber)) => uploadChunk(state, chunk, chunkNumber) },
-        completeUpload
+        completeUpload,
+        abortUpload
       )
     )(Keep.right)
 }

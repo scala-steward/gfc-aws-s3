@@ -10,7 +10,8 @@ import scala.util.Try
 class FoldResourceSink[TState, TItem, Mat](
   open: () => TState,
   onEach: (TState, TItem) => (TState),
-  close: TState => Mat
+  close: TState => Mat,
+  onFailure: (Throwable, TState) => Unit
 ) extends GraphStageWithMaterializedValue[SinkShape[TItem], Future[Mat]] {
 
   private val in = Inlet[TItem]("Resource.Sink")
@@ -44,7 +45,7 @@ class FoldResourceSink[TState, TItem, Mat](
     }
 
     private def fail(ex: Throwable) = {
-      close(state)
+      onFailure(ex, state)
       materializedPromise.tryFailure(ex)
       failStage(ex)
     }
@@ -68,10 +69,12 @@ object FoldResourceSink {
     def foldResource[TState, TItem, Mat](
       open: () => TState,
       onEach: (TState, TItem) => (TState),
-      close: TState => Mat
+      close: TState => Mat,
+      onFailure: (Throwable, TState) => Unit = (ex: Throwable, f: TState) => ()
     ): FoldResourceSink[TState, TItem, Mat] = {
 
-      new FoldResourceSink(open, onEach, close)
+      new FoldResourceSink(open, onEach, close, onFailure)
+
     }
   }
 }
