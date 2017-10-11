@@ -63,9 +63,10 @@ class S3MultipartUploaderSinkProtocol(
   }
 
   def abortUpload(ex: Throwable, state: S3MultipartUploaderState): Unit = {
-    logger.info(s"Something happened during the execution, the upload has to be aborted", ex)
-    val request = new AbortMultipartUploadRequest(bucketName, key, state.uploadId)
-    s3Client.abortMultipartUpload(request)
+    logger.error(s"Something happened during the execution, the upload has to be aborted", ex)
+    s3Client.abortMultipartUpload(
+      new AbortMultipartUploadRequest(bucketName, key, state.uploadId)
+    )
     logger.info(s"Upload aborted for ${state.uploadId}")
   }
 
