@@ -28,10 +28,9 @@ class S3MiltupartUploadSinkSpec extends WordSpec with Matchers with MockFactory 
     .flatMap { x => x.toString.getBytes("UTF-8") }
     .take(expectedBytes)
   val source = Source(sourceBytes)
+  val uploadId = UUID.randomUUID().toString
 
   def initS3Mock(failingPart: Option[Int], outStream: OutputStream) = {
-    val uploadId = UUID.randomUUID().toString
-
     val s3Client = stub[AmazonS3]
 
     val initUploadResult = stub[InitiateMultipartUploadResult]
@@ -92,6 +91,14 @@ class S3MiltupartUploadSinkSpec extends WordSpec with Matchers with MockFactory 
     val result = ScalaFutures.whenReady(totalLengthFuture.failed, Timeout(10 seconds)) { ex =>
       ex shouldBe a [IntendedTestFailureException]
     }
+
+    (s3Client.abortMultipartUpload _).verify(
+      where { x: AbortMultipartUploadRequest =>
+        x.getBucketName == bucketName &&
+        x.getKey == fileKey &&
+        x.getUploadId == uploadId
+      }
+    )
   }
 }
 
