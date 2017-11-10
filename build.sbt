@@ -4,9 +4,9 @@ organization  := "com.gilt"
 
 description := "Library to handle data streaming to and from s3"
 
-scalaVersion  := "2.11.11"
+scalaVersion  := "2.12.4"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.12.2")
+crossScalaVersions := Seq(scalaVersion.value, "2.11.11")
 
 scalacOptions += "-target:jvm-1.7"
 
@@ -14,8 +14,8 @@ javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 libraryDependencies ++= Seq(
   "org.slf4j"          % "slf4j-api"        % "1.7.25",
-  "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.109",
-  "com.typesafe.akka"  %% "akka-stream"     % "2.5.1",
+  "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.228",
+  "com.typesafe.akka"  %% "akka-stream"     % "2.5.6",
 
   "org.scalatest"     %% "scalatest"                   % "3.0.1" % Test,
   "org.scalamock"     %% "scalamock-scalatest-support" % "3.6.0" % Test
