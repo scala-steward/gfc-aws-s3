@@ -1,6 +1,4 @@
-# gfc-aws-s3
-
-[![Build Status](https://travis-ci.com/gilt/gfc-aws-s3.svg?token=GMHJnzRkMmqWsbzuEWgW&branch=master)](https://travis-ci.com/gilt/gfc-aws-s3)
+# gfc-aws-s3 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.gilt/gfc-aws-s3_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.gilt/gfc-aws-s3_2.12) [![Build Status](https://travis-ci.com/gilt/gfc-aws-s3.svg?token=GMHJnzRkMmqWsbzuEWgW&branch=master)](https://travis-ci.com/gilt/gfc-aws-s3)
 
 Tools for streaming data to and from S3. Part of the [Gilt Foundation Classes](https://github.com/gilt?q=gfc).
 
