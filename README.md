@@ -19,7 +19,7 @@ Allows uploading data to S3 in a streaming manner. The underlying implementation
 To create the source:
 
 ```scala
-import com.gilt.gfc.s3.akka.S3MultipartUploaderSink._
+import com.gilt.gfc.aws.s3.akka.S3MultipartUploaderSink._
 
 val bucketName = "test-bucket"
 val fileKey = "test-file"
@@ -34,7 +34,7 @@ val sink = Sink.s3MultipartUpload(s3Client, bucketName, fileKey, chunkSize)
 The sink could also be created in different style manner:
 
 ```scala
-import com.gilt.gfc.s3.akka.S3MultipartUploaderSink
+import com.gilt.gfc.aws.s3.akka.S3MultipartUploaderSink
 
 val sink = S3MultipartUploaderSink(s3Client, bucketName, fileKey, chunkSize)
 ```
@@ -52,7 +52,7 @@ Allows accessing S3 objects as a stream source in two different manners - by par
 To do that, use:
 
 ```scala
-import com.gilt.gfc.s3.akka.S3DownloaderSource._
+import com.gilt.gfc.aws.s3.akka.S3DownloaderSource._
 
 val bucketName = "test-bucket"
 val fileKey = "test-file"
@@ -69,7 +69,7 @@ val source = Source.s3MultipartDownload(s3Client, bucketName, fileKey, memoryBuf
 To do that use:
 
 ```scala
-import com.gilt.gfc.s3.akka.S3DownloaderSource._
+import com.gilt.gfc.aws.s3.akka.S3DownloaderSource._
 
 val bucketName = "test-bucket"
 val fileKey = "test-file"
