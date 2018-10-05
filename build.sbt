@@ -14,7 +14,7 @@ javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 libraryDependencies ++= Seq(
   "org.slf4j"          % "slf4j-api"        % "1.7.25",
-  "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.419",
+  "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.422",
   "com.typesafe.akka"  %% "akka-stream"     % "2.5.6",
 
   "org.scalatest"     %% "scalatest"                   % "3.0.5" % Test,
