@@ -13,11 +13,10 @@ scalacOptions += "-target:jvm-1.7"
 javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 libraryDependencies ++= Seq(
-  "org.slf4j"          % "slf4j-api"        % "1.7.26",
+  "org.slf4j"          % "slf4j-api"        % "1.7.28",
   "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.627",
-  "com.typesafe.akka"  %% "akka-stream"     % "2.5.21",
-
-  "org.scalatest"     %% "scalatest"                   % "3.0.7" % Test,
+  "com.typesafe.akka"  %% "akka-stream"     % "2.5.25",
+  "org.scalatest"     %% "scalatest"                   % "3.0.8" % Test,
   "org.scalamock"     %% "scalamock-scalatest-support" % "3.6.0" % Test
 )
 
