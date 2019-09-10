@@ -4,7 +4,7 @@ organization  := "com.gilt"
 
 description := "Library to handle data streaming to and from s3"
 
-scalaVersion  := "2.12.8"
+scalaVersion  := "2.12.9"
 
 crossScalaVersions := Seq(scalaVersion.value, "2.11.12")
 
