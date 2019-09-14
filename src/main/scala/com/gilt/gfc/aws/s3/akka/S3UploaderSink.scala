@@ -6,7 +6,7 @@ import com.amazonaws.services.s3.AmazonS3
 import com.amazonaws.services.s3.model._
 import org.slf4j.LoggerFactory
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.concurrent.Future
 
 case class S3MultipartUploaderState(
@@ -56,7 +56,7 @@ class S3MultipartUploaderSinkProtocol(
 
   def completeUpload(state: S3MultipartUploaderState): Long = {
     logger.info(s"Completing upload ${state.uploadId}")
-    val completeRequest = new CompleteMultipartUploadRequest(bucketName, key, state.uploadId, state.etags)
+    val completeRequest = new CompleteMultipartUploadRequest(bucketName, key, state.uploadId, state.etags.asJava)
     s3Client.completeMultipartUpload(completeRequest)
     logger.info(s"Upload completed for ${state.uploadId}")
     state.totalLength
@@ -102,4 +102,3 @@ object S3MultipartUploaderSink {
     ): Sink[Byte, Future[Long]] = apply(s3Client, bucketName, key, chunkSize)
   }
 }
-

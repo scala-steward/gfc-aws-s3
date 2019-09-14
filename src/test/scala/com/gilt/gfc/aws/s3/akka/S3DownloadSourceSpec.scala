@@ -1,5 +1,7 @@
 package com.gilt.gfc.aws.s3.akka
 
+import scala.language.postfixOps
+
 import java.io.ByteArrayInputStream
 
 import akka.NotUsed

@@ -1,5 +1,7 @@
 package com.gilt.gfc.aws.s3.akka
 
+import scala.language.postfixOps
+
 import java.io.{ByteArrayOutputStream, OutputStream}
 import java.util.UUID
 
@@ -101,4 +103,3 @@ class S3MiltupartUploadSinkSpec extends WordSpec with Matchers with MockFactory 
     )
   }
 }
-

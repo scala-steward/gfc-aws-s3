@@ -63,7 +63,7 @@ class S3DowloaderSourceProtocol(
     readMemoryBufferSize: Int
   ): Source[ByteString, NotUsed] = {
 
-    Source.single(Unit)
+    Source.single()
       .map(_ => getPartCount(s3Client, bucketName, key))
       .flatMapConcat { partCount =>
         logger.info(s"Downloading file $key from bucket $bucketName; number of parts: $partCount")
@@ -93,7 +93,7 @@ class S3DowloaderSourceProtocol(
     readMempryBufferSize: Int
   ): Source[ByteString, NotUsed] = {
 
-    Source.single(Unit)
+    Source.single()
       .map { _ => getObjectContentLength() }
       .flatMapConcat { fileLength =>
         logger.info(s"Downloading file $key from bucket $bucketName; file length: $fileLength")

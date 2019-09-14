@@ -26,9 +26,9 @@ object AmazonS3Extensions {
     }
 
     private def mostRecentObjectSummary(bucketName: String, prefix: String): Option[S3ObjectSummary] = {
-      import scala.collection.JavaConversions._
+      import scala.collection.JavaConverters._
       blocking {
-        amazonS3.listObjects(bucketName, prefix).getObjectSummaries.toList
+        amazonS3.listObjects(bucketName, prefix).getObjectSummaries.asScala.toList
       }.sortBy(_.getLastModified)(Ordering[Date].reverse).headOption
     }
   }
