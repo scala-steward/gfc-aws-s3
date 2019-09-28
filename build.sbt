@@ -6,7 +6,7 @@ description := "Library to handle data streaming to and from s3"
 
 scalaVersion  := "2.12.10"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.11.12", "2.13.1")
+crossScalaVersions := Seq(scalaVersion.value, "2.13.1")
 
 scalacOptions += "-target:jvm-1.8"
 
