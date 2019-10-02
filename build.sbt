@@ -41,14 +41,14 @@ pomIncludeRepository := { _ => false }
 
 startYear := Some(2017)
 
-licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gilt/gfc-aws-s3/master/LICENSE"))
+licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gfc-collective/gfc-aws-s3/master/LICENSE"))
 
-homepage := Some(url("https://github.com/gilt/gfc-aws-s3"))
+homepage := Some(url("https://github.com/gfc-collective/gfc-aws-s3"))
 
 pomExtra := (
   <scm>
-    <url>https://github.com/gilt/gfc-aws-s3.git</url>
-    <connection>scm:git:git@github.com:gilt/gfc-aws-s3.git</connection>
+    <url>https://github.com/gfc-collective/gfc-aws-s3.git</url>
+    <connection>scm:git:git@github.com:gfc-collective/gfc-aws-s3.git</connection>
   </scm>
     <developers>
       <developer>
