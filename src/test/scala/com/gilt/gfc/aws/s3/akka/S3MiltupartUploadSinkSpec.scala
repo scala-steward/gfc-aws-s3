@@ -13,11 +13,12 @@ import com.amazonaws.services.s3.model._
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.concurrent.PatienceConfiguration.Timeout
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{Matchers, WordSpec}
 
 import scala.concurrent.duration._
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class S3MiltupartUploadSinkSpec extends WordSpec with Matchers with MockFactory {
+class S3MiltupartUploadSinkSpec extends AnyWordSpec with Matchers with MockFactory {
 
   implicit val system = ActorSystem("s3-test")
   implicit val materializer = ActorMaterializer()

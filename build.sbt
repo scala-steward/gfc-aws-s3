@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
   "org.slf4j"          % "slf4j-api"        % "1.7.29",
   "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.681",
   "com.typesafe.akka"  %% "akka-stream"     % "2.6.0",
-  "org.scalatest"     %% "scalatest"                   % "3.0.8" % Test,
+  "org.scalatest"     %% "scalatest"                   % "3.1.0" % Test,
   "org.scalamock"     %% "scalamock"        % "4.4.0" % Test
 )
 
