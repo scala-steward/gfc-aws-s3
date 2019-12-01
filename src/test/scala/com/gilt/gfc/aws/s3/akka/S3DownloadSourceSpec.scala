@@ -15,12 +15,13 @@ import org.apache.http.client.methods.HttpRequestBase
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.concurrent.PatienceConfiguration.Timeout
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{Matchers, WordSpec}
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class S3DownloadSourceSpec extends WordSpec with Matchers with MockFactory {
+class S3DownloadSourceSpec extends AnyWordSpec with Matchers with MockFactory {
 
   import S3DownloaderSource._
   import ScalaFutures._
