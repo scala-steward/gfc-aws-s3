@@ -1,4 +1,4 @@
-# gfc-aws-s3 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.gilt/gfc-aws-s3_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.gilt/gfc-aws-s3_2.12) [![Build Status](https://travis-ci.com/gilt/gfc-aws-s3.svg?token=GMHJnzRkMmqWsbzuEWgW&branch=master)](https://travis-ci.com/gilt/gfc-aws-s3)
+# gfc-aws-s3 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-aws-s3_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-aws-s3_2.12) [![Build Status](https://travis-ci.com/gilt/gfc-aws-s3.svg?token=GMHJnzRkMmqWsbzuEWgW&branch=master)](https://travis-ci.com/gilt/gfc-aws-s3)
 
 Tools for streaming data to and from S3. Part of the [Gilt Foundation Classes](https://github.com/gilt?q=gfc).
 
@@ -7,7 +7,7 @@ Tools for streaming data to and from S3. Part of the [Gilt Foundation Classes](h
 The library provides tools to integrate akka-streams with Amazon S3 storage service. To use it add to your dependencies:
 
 ```sbt
-"com.gilt" %% "gfc-aws-s3" % "0.1.0"
+"org.gfccollective" %% "gfc-aws-s3" % "0.1.0"
 ```
 
 The library contains akka-stream Sources and Sinks to Stream data from and to S3.
@@ -19,7 +19,7 @@ Allows uploading data to S3 in a streaming manner. The underlying implementation
 To create the source:
 
 ```scala
-import com.gilt.gfc.aws.s3.akka.S3MultipartUploaderSink._
+import org.gfccollective.aws.s3.akka.S3MultipartUploaderSink._
 
 val bucketName = "test-bucket"
 val fileKey = "test-file"
@@ -34,7 +34,7 @@ val sink = Sink.s3MultipartUpload(s3Client, bucketName, fileKey, chunkSize)
 The sink could also be created in different style manner:
 
 ```scala
-import com.gilt.gfc.aws.s3.akka.S3MultipartUploaderSink
+import org.gfccollective.aws.s3.akka.S3MultipartUploaderSink
 
 val sink = S3MultipartUploaderSink(s3Client, bucketName, fileKey, chunkSize)
 ```
@@ -52,7 +52,7 @@ Allows accessing S3 objects as a stream source in two different manners - by par
 To do that, use:
 
 ```scala
-import com.gilt.gfc.aws.s3.akka.S3DownloaderSource._
+import org.gfccollective.aws.s3.akka.S3DownloaderSource._
 
 val bucketName = "test-bucket"
 val fileKey = "test-file"
@@ -69,7 +69,7 @@ val source = Source.s3MultipartDownload(s3Client, bucketName, fileKey, memoryBuf
 To do that use:
 
 ```scala
-import com.gilt.gfc.aws.s3.akka.S3DownloaderSource._
+import org.gfccollective.aws.s3.akka.S3DownloaderSource._
 
 val bucketName = "test-bucket"
 val fileKey = "test-file"

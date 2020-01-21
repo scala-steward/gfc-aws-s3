@@ -1,4 +1,4 @@
-package com.gilt.gfc.aws.s3.akka
+package org.gfccollective.aws.s3.akka
 
 import akka.NotUsed
 import akka.stream._

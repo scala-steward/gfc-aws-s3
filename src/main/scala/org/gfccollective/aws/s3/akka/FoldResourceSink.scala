@@ -1,4 +1,4 @@
-package com.gilt.gfc.aws.s3.akka
+package org.gfccollective.aws.s3.akka
 
 import akka.stream.stage._
 import akka.stream._

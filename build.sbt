@@ -1,12 +1,12 @@
 name        := "gfc-aws-s3"
 
-organization  := "com.gilt"
+organization  := "org.gfccollective"
 
 description := "Library to handle data streaming to and from s3"
 
-scalaVersion  := "2.12.10"
+scalaVersion  := "2.13.1"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.13.1")
+crossScalaVersions := Seq(scalaVersion.value, "2.12.10")
 
 scalacOptions += "-target:jvm-1.8"
 
@@ -16,8 +16,8 @@ libraryDependencies ++= Seq(
   "org.slf4j"          % "slf4j-api"        % "1.7.30",
   "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.681",
   "com.typesafe.akka"  %% "akka-stream"     % "2.6.1",
-  "org.scalatest"     %% "scalatest"                   % "3.1.0" % Test,
-  "org.scalamock"     %% "scalamock"        % "4.4.0" % Test
+  "org.scalatest"     %% "scalatest"        % "3.1.0" % Test,
+  "org.scalamock"     %% "scalamock"        % "4.4.0" % Test,
 )
 
 
