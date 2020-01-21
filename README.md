@@ -1,15 +1,25 @@
 # gfc-aws-s3 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-aws-s3_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-aws-s3_2.12) [![Build Status](https://travis-ci.com/gilt/gfc-aws-s3.svg?token=GMHJnzRkMmqWsbzuEWgW&branch=master)](https://travis-ci.com/gilt/gfc-aws-s3)
 
-Tools for streaming data to and from S3. Part of the [Gilt Foundation Classes](https://github.com/gilt?q=gfc).
+Tools for streaming data to and from S3.
+A fork and new home of the former Gilt Foundation Classes (`com.gilt.gfc`), now called the [GFC Collective](https://github.com/gfc-collective), maintained by some of the original authors.
+
+
+## Getting gfc-collection
+
+The latest version is 1.0.0, which is cross-built against Scala 2.12.x and 2.13.x.
+
+If you're using SBT, add the following line to your build file:
+
+```scala
+libraryDependencies += "org.gfccollective" %% "gfc-aws-s3" % "1.0.0"
+```
+
+For Maven and other build tools, you can visit [search.maven.org](http://search.maven.org/#search%7Cga%7C1%7Corg.gfccollective).
+(This search will also list other available libraries from the GFC Collective.)
 
 ## Usage
 
-The library provides tools to integrate akka-streams with Amazon S3 storage service. To use it add to your dependencies:
-
-```sbt
-"org.gfccollective" %% "gfc-aws-s3" % "0.1.0"
-```
-
+The library provides tools to integrate akka-streams with Amazon S3 storage service. 
 The library contains akka-stream Sources and Sinks to Stream data from and to S3.
 
 ### Sinks
@@ -86,7 +96,6 @@ The pieces of code above will crease a Source[ByteString], where each ByteString
 
 ## Copyright and license
 
-Copyright 2017 Gilt Groupe, Hudson's Bay Company
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
