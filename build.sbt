@@ -21,7 +21,7 @@ ScoverageKeys.coverageMinimum := 90.0
 libraryDependencies ++= Seq(
   "org.slf4j"          % "slf4j-api"        % "1.7.30",
   "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.923",
-  "com.typesafe.akka" %% "akka-stream"      % "2.6.11",
+  "com.typesafe.akka" %% "akka-stream"      % "2.6.12",
   "org.scalatest"     %% "scalatest"        % "3.2.3" % Test,
   "org.scalamock"     %% "scalamock"        % "5.1.0" % Test,
 )
