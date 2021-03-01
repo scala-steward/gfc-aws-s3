@@ -6,7 +6,7 @@ organization  := "org.gfccollective"
 
 description := "Library to handle data streaming to and from s3"
 
-scalaVersion  := "2.13.4"
+scalaVersion  := "2.13.5"
 
 crossScalaVersions := Seq(scalaVersion.value, "2.12.12")
 
