@@ -47,7 +47,7 @@ pomIncludeRepository := { _ => false }
 
 startYear := Some(2017)
 
-licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gfc-collective/gfc-aws-s3/master/LICENSE"))
+licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gfc-collective/gfc-aws-s3/main/LICENSE"))
 
 homepage := Some(url("https://github.com/gfc-collective/gfc-aws-s3"))
 
