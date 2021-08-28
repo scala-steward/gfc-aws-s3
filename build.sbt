@@ -19,7 +19,7 @@ ScoverageKeys.coverageFailOnMinimum := true
 ScoverageKeys.coverageMinimum := 90.0
 
 libraryDependencies ++= Seq(
-  "org.slf4j"          % "slf4j-api"        % "1.7.31",
+  "org.slf4j"          % "slf4j-api"        % "1.7.32",
   "com.amazonaws"      %  "aws-java-sdk-s3" % "1.11.1024",
   "com.typesafe.akka" %% "akka-stream"      % "2.6.16",
   "org.scalatest"     %% "scalatest"        % "3.2.9" % Test,
