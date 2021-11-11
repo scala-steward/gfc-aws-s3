@@ -26,7 +26,7 @@ libraryDependencies ++= Seq(
   "org.scalamock"     %% "scalamock"        % "5.1.0" % Test,
   "com.adobe.testing"  % "s3mock-testcontainers"  % "2.2.3" % Test,
   "org.slf4j"          % "slf4j-simple"        % "1.7.32" % Test,
-  "org.scala-lang.modules" %% "scala-collection-compat" % "2.5.0" % Test,
+  "org.scala-lang.modules" %% "scala-collection-compat" % "2.6.0" % Test,
 )
 
 releaseCrossBuild := true
