@@ -16,7 +16,7 @@ javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 ScoverageKeys.coverageFailOnMinimum := true
 
-ScoverageKeys.coverageMinimum := 90.0
+ScoverageKeys.coverageMinimumStmtTotal := 90.0
 
 libraryDependencies ++= Seq(
   "org.slf4j"          % "slf4j-api"        % "1.7.32",
