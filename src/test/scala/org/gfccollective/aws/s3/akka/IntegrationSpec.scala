@@ -22,7 +22,7 @@ class IntegrationSpec extends AnyWordSpec
   with Matchers
   with BeforeAndAfterEach {
 
-  private val dockerImageName = DockerImageName.parse(S3MockContainer.IMAGE_NAME).withTag("2.2.3")
+  private val dockerImageName = DockerImageName.parse(S3MockContainer.IMAGE_NAME).withTag("2.3.2")
   private val region = "us-east-1"
   private val awsCredentials: AWSCredentials = new BasicAWSCredentials("aaa", "bbb")
   private var bucketName: String = _
