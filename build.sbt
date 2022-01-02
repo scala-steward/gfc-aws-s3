@@ -24,7 +24,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream"      % "2.6.18",
   "org.scalatest"     %% "scalatest"        % "3.2.10" % Test,
   "org.scalamock"     %% "scalamock"        % "5.2.0" % Test,
-  "com.adobe.testing"  % "s3mock-testcontainers"  % "2.3.2" % Test,
+  "com.adobe.testing"  % "s3mock-testcontainers"  % "2.3.3" % Test,
   "org.slf4j"          % "slf4j-simple"        % "1.7.32" % Test,
   "org.scala-lang.modules" %% "scala-collection-compat" % "2.6.0" % Test,
 )
