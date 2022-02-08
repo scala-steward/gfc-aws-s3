@@ -19,13 +19,13 @@ ScoverageKeys.coverageFailOnMinimum := true
 ScoverageKeys.coverageMinimumStmtTotal := 90.0
 
 libraryDependencies ++= Seq(
-  "org.slf4j"          % "slf4j-api"        % "1.7.35",
+  "org.slf4j"          % "slf4j-api"        % "1.7.36",
   "com.amazonaws"      %  "aws-java-sdk-s3" % "1.12.131",
   "com.typesafe.akka" %% "akka-stream"      % "2.6.18",
   "org.scalatest"     %% "scalatest"        % "3.2.11" % Test,
   "org.scalamock"     %% "scalamock"        % "5.2.0" % Test,
   "com.adobe.testing"  % "s3mock-testcontainers"  % "2.4.7" % Test,
-  "org.slf4j"          % "slf4j-simple"        % "1.7.35" % Test,
+  "org.slf4j"          % "slf4j-simple"        % "1.7.36" % Test,
   "org.scala-lang.modules" %% "scala-collection-compat" % "2.6.0" % Test,
 )
 
