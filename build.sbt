@@ -26,7 +26,7 @@ libraryDependencies ++= Seq(
   "org.scalamock"     %% "scalamock"        % "5.2.0" % Test,
   "com.adobe.testing"  % "s3mock-testcontainers"  % "2.4.9" % Test,
   "org.slf4j"          % "slf4j-simple"        % "1.7.36" % Test,
-  "org.scala-lang.modules" %% "scala-collection-compat" % "2.7.0" % Test,
+  "org.scala-lang.modules" %% "scala-collection-compat" % "2.8.1" % Test,
 )
 
 publishMavenStyle := true
