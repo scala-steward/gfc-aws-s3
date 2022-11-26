@@ -6,9 +6,9 @@ organization  := "org.gfccollective"
 
 description := "Library to handle data streaming to and from s3"
 
-scalaVersion  := "2.13.8"
+scalaVersion  := "2.13.10"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.12.15")
+crossScalaVersions := Seq(scalaVersion.value, "2.12.17")
 
 scalacOptions += "-target:jvm-1.8"
 
@@ -22,11 +22,11 @@ libraryDependencies ++= Seq(
   "org.slf4j"          % "slf4j-api"        % "1.7.36",
   "com.amazonaws"      %  "aws-java-sdk-s3" % "1.12.131",
   "com.typesafe.akka" %% "akka-stream"      % "2.6.20",
-  "org.scalatest"     %% "scalatest"        % "3.2.12" % Test,
+  "org.scalatest"     %% "scalatest"        % "3.2.14" % Test,
   "org.scalamock"     %% "scalamock"        % "5.2.0" % Test,
   "com.adobe.testing"  % "s3mock-testcontainers"  % "2.4.9" % Test,
   "org.slf4j"          % "slf4j-simple"        % "1.7.36" % Test,
-  "org.scala-lang.modules" %% "scala-collection-compat" % "2.7.0" % Test,
+  "org.scala-lang.modules" %% "scala-collection-compat" % "2.8.1" % Test,
 )
 
 publishMavenStyle := true
